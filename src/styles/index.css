@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 153, 0, 0.04), transparent),
+      radial-gradient(ellipse 60% 50% at 100% 0%, rgba(74, 158, 255, 0.03), transparent);
+    min-height: 100vh;
+  }
+  ::selection {
+    @apply bg-aws/30 text-white;
+  }
+  /* スクロールバー */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-paper-2;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-line rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-line-2;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-paper-2 border border-line rounded-2xl p-5 transition-all duration-200;
+  }
+  .card-hover {
+    @apply cursor-pointer hover:border-aws/50 hover:-translate-y-0.5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply bg-aws text-paper hover:bg-aws-l;
+  }
+  .btn-secondary {
+    @apply bg-paper-3 text-ink-2 border border-line hover:border-line-2 hover:text-white;
+  }
+  .btn-ghost {
+    @apply text-ink-3 hover:text-white hover:bg-paper-3;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-[0.6rem] font-bold tracking-wide;
+  }
+  .stat-card {
+    @apply bg-paper-2 border border-line rounded-xl p-4 text-center;
+  }
+}
+
+/* コードブロック（問題文中のpre） */
+.codeblock {
+  @apply bg-[#060a12] border border-[#1a2738] rounded-lg p-3 my-2 font-mono text-xs leading-relaxed overflow-x-auto whitespace-pre;
+  color: #b0c0d0;
+}
